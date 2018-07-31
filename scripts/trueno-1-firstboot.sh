@@ -52,10 +52,7 @@ if ! grep -q fbcon /boot/cmdline.txt; then
   #echo "fbcon=map:10 fbcon=font:VGA8x8" >>  /boot/cmdline.txt
 fi
 if ! grep -q dtoverlay /boot/config.txt; then
-  #echo "dtoverlay=piscreen,speed=16000000,rotate=270" >> /boot/config.txt
+  echo "dtoverlay=piscreen,speed=16000000,rotate=270" >> /boot/config.txt
 fi
-
-fbcon=map:10 fbcon=font:VGA8x8
-
 
 echo "20" > /home/pi/init.status

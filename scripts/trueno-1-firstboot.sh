@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo "$(date +'%Y-%m/%d %H:%M:%S') - init start" >> /home/pi/init.log
+sleep 30
 
 if [ -f "/home/pi/init.status" ]; then
   initState=$( cat /home/pi/init.status )
@@ -29,7 +30,16 @@ fi
 apt-mark hold raspberrypi-bootloader  >>/home/pi/init.log 2>&1
 apt-get update  >>/home/pi/init.log 2>&1
 apt-get upgrade -f -y --force-yes >>/home/pi/init.log 2>&1
+dpkg --configure -a >>/home/pi/init.log 2>&1
+
+# install setup scripts
 apt install git -y >>/home/pi/init.log 2>&1
+git clone -b initial https://github.com/Stadicus/raspibolt-setup /home/pi/setup
+cp /home/pi/setup/scripts/sbin/* /usr/local/sbin/
+
+if ! grep -q install.sh /home/pi/.profile; then
+  echo "/usr/local/sbin/trueno-2-install.sh" >> /home/pi/.profile
+fi
 
 chown pi:pi -R /home/pi
 chown web:web -R /home/web

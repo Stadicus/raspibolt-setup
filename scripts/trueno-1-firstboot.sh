@@ -1,6 +1,7 @@
 #!/bin/sh
 
-echo "$(date +'%Y-%m/%d %H:%M:%S') - init start" >> /home/pi/init.log
+echo "$(date +'%Y-%m/%d %H:%M:%S') - 10 - init start" >> /home/pi/init.log
+echo "10" > /home/pi/init.status
 sleep 30
 
 if [ -f "/home/pi/init.status" ]; then
@@ -34,8 +35,10 @@ dpkg --configure -a >>/home/pi/init.log 2>&1
 
 # install setup scripts
 apt install git -y >>/home/pi/init.log 2>&1
+rm -rf /home/pi/setup
 git clone -b initial https://github.com/Stadicus/raspibolt-setup /home/pi/setup
 cp /home/pi/setup/scripts/sbin/* /usr/local/sbin/
+chmod +x /usr/local/sbin/trueno*.sh
 
 if ! grep -q install.sh /home/pi/.profile; then
   echo "/usr/local/sbin/trueno-2-install.sh" >> /home/pi/.profile
@@ -43,3 +46,4 @@ fi
 
 chown pi:pi -R /home/pi
 chown web:web -R /home/web
+echo "20" > /home/pi/init.status

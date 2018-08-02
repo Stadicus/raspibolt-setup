@@ -1,12 +1,34 @@
 #!/bin/sh
 
-echo "$(date +'%Y-%m/%d %H:%M:%S') - 10 - Trueno DietPi init start" >> /var/log/trueno-init.log
-apt install -y usbmount >> /var/log/trueno-init.log
-adduser admin          >> /var/log/trueno-init.log
-adduser admin sudo     >> /var/log/trueno-init.log
-adduser bitcoin        >> /var/log/trueno-init.log
-adduser web            >> /var/log/trueno-init.log
-apt install -y jq dphys-swapfile python python3 xxd ufw >> /var/log/trueno-init.log
+stateFile = "/root/init.state"
+logFile   = "/var/log/trueno-init.log"
 
-git clone https://github.com/Stadicus/raspibolt-setup
-cp -R raspibolt-setup/* /
+echo "*** $(date +'%Y-%m/%d %H:%M:%S') - Trueno DietPi init start" >>$logFile 2>&1
+adduser admin          >>$logFile 2>&1
+adduser admin sudo     >>$logFile 2>&1
+adduser bitcoin        >>$logFile 2>&1
+adduser web            >>$logFile 2>&1
+apt install -y usbmount jq dphys-swapfile python python3 xxd ufw >>$logFile 2>&1
+
+git clone https://github.com/Stadicus/raspibolt-setup >>$logFile 2>&1
+cp -R raspibolt-setup/fs/* / >>$logFile 2>&1
+
+if [ -f "$stateFile" ]; then
+  $state=$( cat $stateFile )
+else
+  state = 10
+  echo "$state" > $stateFile
+fi
+
+if [ ${state} -eq 10 ]; then
+  echo "*** init state: $state" >>$logFile 2>&1
+  state = 20
+  echo "$state" > $stateFile
+fi
+
+if [ ${state} -eq 20 ]; then
+  echo "*** init state: $state" >>$logFile 2>&1
+  state = 30
+  echo "$state" > $stateFile
+fi
+

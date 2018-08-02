@@ -1,0 +1,23 @@
+# RaspiBolt LND Mainnet: systemd unit for lnd
+# /etc/systemd/system/lnd.service
+
+[Unit]
+Description=LND Lightning Daemon
+Wants=bitcoind.service
+After=bitcoind.service
+
+[Service]
+ExecStart=/usr/local/bin/lnd
+#unlock script
+PIDFile=/home/bitcoin/.lnd/lnd.pid
+User=bitcoin
+Group=bitcoin
+LimitNOFILE=256000
+Type=simple
+KillMode=process
+TimeoutSec=180
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,4 +1,5 @@
 #!/bin/sh
+# RaspiBolt: init script for DietPi automation
 
 stateFile="/root/init.state"
 logFile="/var/log/trueno-init.log"
@@ -39,8 +40,8 @@ if [ $state = 20 ]; then
   echo "*** init state: $state" >>$logFile 2>&1
   ufw default deny incoming
   ufw default allow outgoing
-  ufw allow from 192.168.0.0/24 to any port 22 comment 'allow SSH from local LAN'
-  ufw allow from 192.168.0.0/24 to any port 50002 comment 'allow Electrum from local LAN'
+  ufw allow 22    comment 'allow SSH'
+  ufw allow 50002 comment 'allow Electrum'
   ufw allow 9735  comment 'allow Lightning'
   ufw allow 8333  comment 'allow Bitcoin mainnet'
   ufw allow 18333 comment 'allow Bitcoin testnet'

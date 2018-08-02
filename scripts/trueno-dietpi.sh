@@ -8,5 +8,5 @@ adduser bitcoin        >> /var/log/trueno-init.log
 adduser web            >> /var/log/trueno-init.log
 apt install -y jq dphys-swapfile python xxd ufw >> /var/log/trueno-init.log
 
-https://github.com/Stadicus/raspibolt-setup
+git clone https://github.com/Stadicus/raspibolt-setup
 cp -R raspibolt-setup/* /

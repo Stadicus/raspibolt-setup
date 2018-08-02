@@ -1,0 +1,19 @@
+# RaspiBolt: systemd unit for Electrum Personal Server
+# /etc/systemd/system/eps.service
+
+[Unit]
+Description=Electrum Personal Server
+After=bitcoind.service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/bitcoin/electrum-personal-server/eps/server.py  /home/bitcoin/electrum-personal-server/eps
+User=bitcoin
+Group=bitcoin
+Type=simple
+KillMode=process
+TimeoutSec=60
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

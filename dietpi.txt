@@ -77,6 +77,9 @@ AUTO_SETUP_GLOBAL_PASSWORD=dietpi
 #	For a list of software index's (ID's), run '/DietPi/dietpi/dietpi-software list'
 #	No limit on number entries, add as many as you need and uncomment the line.
 #	DietPi will automatically install all pre-reqs (eg: ALSA/XSERVER for desktops etc)
+
+#AUTO_SETUP_INSTALL_SOFTWARE_ID=6	#Xserver
+
 AUTO_SETUP_INSTALL_SOFTWARE_ID=16	#Build essentials
 AUTO_SETUP_INSTALL_SOFTWARE_ID=17	#Git
 AUTO_SETUP_INSTALL_SOFTWARE_ID=73	#Fail2Ban

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RaspiBolt Setup
-nav_order: 
+nav_order: 100
 ---
 # Test TOC for documentation
 

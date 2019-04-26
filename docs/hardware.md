@@ -1,3 +1,10 @@
+---
+layout: default
+title: Hardware
+nav_order: 200
+has_children: true
+has_toc: false
+---
 # Hardware
 Nunc pharetra, velit non venenatis viverra, nunc orci mollis ante, condimentum ullamcorper massa orci ac eros. Etiam ut risus id dolor elementum laoreet. Cras quam urna, pulvinar eget consectetur sed, iaculis lacinia dui. Curabitur quis augue mauris. Phasellus semper interdum rutrum. Nullam ultrices ligula est, eu feugiat dolor lacinia non. Ut magna quam, lacinia in tristique et, elementum volutpat elit. Etiam eu ullamcorper massa. Cras orci sem, commodo sed mi vitae, mollis convallis felis. Fusce iaculis tellus a euismod faucibus.
 

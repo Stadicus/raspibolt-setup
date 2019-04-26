@@ -1,3 +1,8 @@
+---
+layout: default
+title: RaspiBolt Setup
+nav_order: 
+---
 # Test TOC for documentation
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum non leo at porttitor. Praesent faucibus imperdiet malesuada. Quisque blandit justo sit amet neque viverra rhoncus. Morbi lobortis sem non quam ultrices malesuada. Fusce tempor pharetra elit vitae finibus. Praesent nec fermentum odio. Cras commodo, purus at efficitur mattis, erat tortor semper metus, a consectetur felis arcu ut ante. Nam varius, odio eu tincidunt pulvinar, massa purus luctus dolor, sit amet auctor justo turpis non nibh.

@@ -1,3 +1,8 @@
+---
+layout: default
+title: Armbian
+nav_order: 300
+---
 # Armbian build
 Integer mollis porta efficitur. Cras ex orci, cursus mollis facilisis ornare, bibendum a eros. Phasellus mi massa, tempor sit amet aliquet gravida, ornare vel neque. Donec finibus imperdiet viverra. Cras vulputate condimentum magna, ut consequat tortor varius in. Integer sed nulla sagittis, volutpat mi et, pretium ligula. Ut eget tortor pretium, pretium dui ut, tempus justo. Etiam bibendum eros a felis accumsan, non ullamcorper turpis gravida. Nam elementum ligula ante, et dapibus felis hendrerit tempor. Morbi egestas, risus ac vehicula facilisis, tellus odio pellentesque est, et sollicitudin libero arcu vitae ante. Nunc id mattis lacus, sit amet auctor nulla. Fusce hendrerit sagittis ipsum.
 

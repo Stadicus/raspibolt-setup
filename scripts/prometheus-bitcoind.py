@@ -21,6 +21,9 @@ BITCOIN_BLOCKS = Gauge('bitcoin_blocks', 'Block height')
 BITCOIN_DIFFICULTY = Gauge('bitcoin_difficulty', 'Difficulty')
 BITCOIN_PEERS = Gauge('bitcoin_peers', 'Number of peers')
 BITCOIN_HASHPS = Gauge('bitcoin_hashps', 'Estimated network hash rate per second')
+BITCOIN_VERIFICATION_PROGRESS = Gauge('bitcoin_verification_progress', 'Blockchain verification progress')
+BITCOIN_IBD = Gauge('bitcoin_ibd', 'Initial block download (true/false)')
+BITCOIN_SIZE_ON_DISK = Gauge('bitcoin_size_on_disk', 'size on disk in bytes')
 
 BITCOIN_WARNINGS = Counter('bitcoin_warnings', 'Number of warnings detected')
 BITCOIN_UPTIME = Gauge('bitcoin_uptime', 'Number of seconds the Bitcoin daemon has been running')
@@ -110,6 +113,9 @@ def main():
         BITCOIN_PEERS.set(networkinfo['connections'])
         BITCOIN_DIFFICULTY.set(blockchaininfo['difficulty'])
         BITCOIN_HASHPS.set(hashps)
+        BITCOIN_VERIFICATION_PROGRESS.set(blockchaininfo['verificationprogress'])
+        BITCOIN_IBD.set(blockchaininfo['initialblockdownload'])
+        BITCOIN_SIZE_ON_DISK.set(blockchaininfo['size_on_disk'])
 
         if networkinfo['warnings']:
             BITCOIN_WARNINGS.inc()

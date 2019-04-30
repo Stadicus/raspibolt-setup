@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 import json
 import time
 import subprocess
@@ -98,7 +99,7 @@ def get_raw_tx(txid):
 
 
 def main():
-    # Start up the server to expose the metrics.
+    print('Starting HTTP server exposing Prometheus metrics on :8334..')
     start_http_server(8334)
     while True:
         blockchaininfo = bitcoin('getblockchaininfo')
